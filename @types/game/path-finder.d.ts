@@ -1,5 +1,5 @@
 declare module "game/path-finder" {
-  import { RoomPosition, _Constructor } from "game/prototypes";
+  import { GameObject, RoomPosition, _Constructor } from "game/prototypes";
   export function searchPath(
     origin: RoomPosition,
     goal: RoomPosition | { pos: RoomPosition; range: number } | (RoomPosition | { pos: RoomPosition; range: number })[],
@@ -132,6 +132,11 @@ declare module "game/path-finder" {
      * CostMatrix (Container for custom navigation cost data)
      */
     costMatrix?: CostMatrix;
+
+    /**
+     * Entities to ignore
+     */
+    ignore?: any[] | RoomPosition[];
   }
 
   export interface MoveToOpts extends FindPathOpts {
